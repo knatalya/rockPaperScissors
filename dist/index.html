@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Камень, ножницы бумага</title>
+</head>
+<body>
+    <main class="container">
+        <h1 class="header">{{ header }}</h1>
+        <div class="game">
+            <select class="game_select" name="knb" id="knb" v-model="element">
+                <option value="1">Камень</option>
+                <option value="2">Ножницы</option>
+                <option value="3">Бумага</option>
+            </select>
+            <input type="button" class="game_play" @click="knb()" value="Играть">
+            <h3 class="game_enemy">{{ enemy }}</h3>
+        </div>
+        <h2 class="header" v-if="result == 'Победа'">Оглушительная победа!</h2>
+        <h2 class="header" v-if="result == 'Проигрыш'">Сокрушительный проигрыш!</h2>
+        <h2 class="header" v-if="result == 'Ничья'">Ну ничья так ничья!</h2>
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>
